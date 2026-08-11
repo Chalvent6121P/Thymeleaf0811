@@ -17,7 +17,7 @@ FROM eclipse-temurin:17-jre-alpine
 WORKDIR /thymeleaf0811
 
 # 從 Stage 1 複製編譯好的 JAR（版本號用萬用字元處理）
-COPY --from=builder /app/target/*.jar thymeleaf.jar
+COPY --from=builder /thymeleaf0811/target/*.jar thymeleaf.jar
 
 # 容器啟動時執行 JAR，並明確指定使用 prod Profile
 ENTRYPOINT ["java", "-jar", "app.jar"]
